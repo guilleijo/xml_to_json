@@ -1,4 +1,3 @@
-import os
 import xml.etree.ElementTree as ET
 
 
@@ -28,7 +27,7 @@ def convert_xml_to_json(xml_file):
     except ET.ParseError:
         raise ParseException('Invalid file, please select a valid XML file.')
 
-    file_name = os.path.basename(xml_file.name).capitalize()
+    file_name = xml_file.name.split('.')[0].capitalize()
     root = tree.getroot()
 
     children = root.getchildren()
